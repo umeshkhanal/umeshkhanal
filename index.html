@@ -2,19 +2,54 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Umesh Khanal – Software Engineer & Developer</title>
-<meta name="description" content="Portfolio of Umesh Khanal – Software Engineer specializing in Python, Django, and full-stack development.">
-<meta name="robots" content="index, follow">
+   <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0f172a" />
 
-<!-- Open Graph (for social & SEO) -->
-<meta property="og:title" content="Umesh Khanal – Software Engineer">
-<meta property="og:description" content="Portfolio of Umesh Khanal – Python, Django, Full-stack development.">
-<meta property="og:url" content="https://umeshkhanal.vercel.app/">
-<meta property="og:type" content="website">
+<title>
+  Umesh Khanal | Full Stack Developer in Abu Dhabi UAE | React & Node.js Expert
+</title>
 
+<meta
+  name="description"
+  content="Umesh Khanal is a professional Full Stack Developer in Abu Dhabi UAE from Nepal. Specializing in React, ML, Node.js, and custom business systems with quotation tracking, WhatsApp integration, and modern web apps."
+/>
+
+<meta
+  name="keywords"
+  content="Umesh Khanal, full stack developer Abu Dhabi, web developer UAE, Nepal software developer UAE, React developer Abu Dhabi, Machine Learning Engineer UAE, freelance web developer Abu Dhabi, PERN stack developer UAE, website developer Abu Dhabi, custom web application UAE"
+/>
+
+<meta name="author" content="Umesh Khanal" />
+<meta name="robots" content="index, follow" />
+
+<link rel="canonical" href="https://umeshkhanal.vercel.app/" />
+<!-- Favicon -->
+ <!-- Favicon -->
+<link rel="icon" type="image/jpg" sizes="32x32" href="images/favicon.jpg" />
+<link rel="icon" type="image/jpg" sizes="16x16" href="/favicon.jpg" />
+
+<!-- Apple (iPhone) -->
+<link rel="apple-touch-icon" sizes="180x180" href="images/favicon.jpg" />
+
+<!-- Android -->
+<link rel="icon" type="image/jpg" sizes="192x192" href="images/favicon.jpg" />
+
+<!-- Fallback -->
+<link rel="shortcut icon" href="images/favicon.jpg" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Umesh Khanal | Full Stack Developer in Abu Dhabi UAE" />
+<meta property="og:description" content="React, WordPress & Node.js expert building modern websites and business systems in UAE." />
+<meta property="og:image" content="https://umeshkhanal.vercel.app/images/favicon.jpg" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://umeshkhanal.vercel.app/" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Umesh Khanal | Full Stack Developer in Abu Dhabi UAE" />
+<meta name="twitter:description" content="Professional full stack developer specializing in React, WordPress, and custom web solutions." />
+<meta name="twitter:image" content="https://umeshkhanal.vercel.app/images/favicon.jpg" />
     <link rel="stylesheet" href="style.css">
     <!-- Add jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -22,8 +57,119 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Umesh Khanal",
+  "jobTitle": "Full Stack Developer",
+  "url": "https://umeshkhanal.vercel.app/",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Abu Dhabi",
+    "addressCountry": "United Arab Emirates"
+  },
+  "knowsAbout": [
+    "React",
+    "PERN Stack",
+    "Node.js",
+    "Full Stack Development",
+    "Web Applications",
+    "Business Systems",
+    "ML Engineer"
+  ]
+}
+</script>
+<style>
 
 
+/* Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  justify-items: center;
+}
+
+/* Card */
+.project-card {
+  background: rgba(255,255,255,0.05);
+  border-radius: 20px;
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  backdrop-filter: blur(12px);
+  width: 100%;
+  max-width: 280px;
+  padding: 15px;
+}
+.project-card:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.3);
+}
+
+/* Logo/Image */
+.project-logo {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.1);
+  padding: 8px;
+  margin-bottom: 12px;
+}
+
+/* Tech Stack Pills */
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.tech-stack span {
+  background: rgba(236,72,153,0.15);
+  color: #ec4899;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+/* Project Name */
+.project-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+/* Button */
+.project-link {
+  display: inline-block;
+  padding: 7px 18px;
+  border-radius: 25px;
+  background: #ec4899;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+.project-link:hover {
+  background: #d63684;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 800px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
 </head>
 
 <body>
@@ -38,8 +184,7 @@
             <a href="#home" class="active">Home</a>
             <a href="#about">About</a>
             <a href="#education">Education</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
+            <a href="#works">Work</a>
             <a href="#contact">Contact</a>
 
             <span class="active-nav"></span>
@@ -53,22 +198,25 @@
     <!-- home section design -->
     <section class="home show-animate" id="home">
         <div class="home-content">
-            <h1>Hi, I'm <span>Umesh Khanal</span><span class="animate" style="--i:2;"></span></h1>
-            <div class="text-animate">
-                <h3>Machine Learning Engineer</h3>
-                <span class="animate" style="--i:3;"></span>
-            </div>
-            <p> I am highly motivated and well driven Information Science Engineer with a strong passion for Machine 
-                Learning and Data Science.
-                Deep interest in exploring the potential of Deep Learning algorithms to solve complex problems.
-                I have worked extensively with frameworks like TensorFlow and PyTorch, applying techniques such as 
-                neural networks and reinforcement learning.
-                Robust foundation in programming languages like Python, JavaScript, and frameworks such as Django,
-                Flask, Streamlit and Angular.js
-                <span class="animate" style="--i:4;"></span>
-            </p>
+  <h1>Hi, I'm <span>Umesh Khanal</span><span class="animate" style="--i:2;"></span></h1>
 
-        </div>
+  <div class="text-animate">
+    <h3>Full Stack Developer</h3>
+    <span class="animate" style="--i:3;"></span>
+  </div>
+
+  <p>
+    I am a results-driven Full Stack Developer specializing in the PERN stack (PostgreSQL, Express.js, React, Node.js), with strong expertise in building scalable web applications and custom business systems. 
+
+    I also develop cross-platform mobile applications using React Native and Expo, delivering smooth and efficient user experiences.
+
+    Alongside development, I have a solid background in Machine Learning and Data Science, with hands-on experience using TensorFlow and PyTorch to build intelligent solutions.
+
+    My technical skill set includes JavaScript, Python, and modern frameworks such as React, Node.js, Django, and Flask, allowing me to create powerful, end-to-end digital solutions.
+    
+    <span class="animate" style="--i:4;"></span>
+  </p>
+</div>
 
         <div class="home-sci">
             <a href="https://www.facebook.com/umesh.khanal.7777"><i class='bx bxl-facebook'></i></a>
@@ -95,16 +243,15 @@
 
     <!-- about section design -->
     <section class="about" id="about">
-        <h2 class="heading">About <span>Me</span><span class="animate scroll" style="--i:1;"></span></h2>
+        <h2 class="heading">About <span>Me</span></h2>
 
         <div class="about-img">
-            <img src="images/about.jpg" alt="">
+            <img src="images/umeshLogo.jpg" alt="">
             <span class="circle-spin"></span>
-            <span class="animate scroll" style="--i:2;"></span>
         </div>
 
         <div class="about-content">
-            <h3>Hi there! Glad to see you here.<span class="animate scroll" style="--i:3;"></span></h3>
+            <h3>Hi there! Glad to see you here.<span class="animate scroll" style="--i:1;"></span></h3>
             <p>Hello, I am Umesh Khanal.<br>
                 A passionate technology enthusiast and recent Information Science
                 and Engineering graduate from VTU University, Karnataka.With a 
@@ -112,23 +259,23 @@
                 and Data Science. I am eager to apply my academic knowledge 
                 and technical skills in a professional environment.
         
-                <span class="animate scroll" style="--i:4;"></span>
+                <span class="animate scroll" style="--i:1;"></span>
             </p>
 
             <div class="btn-box btns">
                 <a href="#contact" class="btn">Contact Me</a>
-                <span class="animate scroll" style="--i:5;"></span>
+                <span class="animate scroll" style="--i:1;"></span>
             </div>
         </div>
     </section>
 
     <!-- education section design -->
     <section class="education" id="education">
-        <h2 class="heading">My <span>Journey</span><span class="animate scroll" style="--i:1;"></span></h2>
+        <h2 class="heading">My <span>Journey</span></h2>
 
         <div class="education-row">
             <div class="education-column">
-                <h3 class="title">Education<span class="animate scroll" style="--i:2;"></span></h3>
+                <h3 class="title">Education</h3>
 
                 <div class="education-box">
                     <div class="education-content">
@@ -166,25 +313,28 @@
                         </div>
                     </div>
 
-                    <span class="animate scroll" style="--i:3;"></span>
+                    <span class="animate scroll" style="--i:1;"></span>
                 </div>
             </div>
 
             <div class="education-column">
-                <h3 class="title">Experience<span class="animate scroll" style="--i:5;"></span></h3>
+                <h3 class="title">Experience</h3>
 
                 <div class="education-box">
                     <div class="education-content">
                         <div class="content">
-                            <div class="year"><i class='bx bxs-calendar'></i> September 2024 - October 2024</div>
-                            <h3>Machine Learning Intern - Code Alpha</h3>
-                            <p>  work on real-world Machine Learning projects,
-                                 focusing on model development, data preprocessing
-                                 solve complex problems in the domain of data science
-                                 and AI.
-                                 understanding of machine learning techniques and their 
-                                 practical applications in business.
-                                </p>
+                            <div class="year"><i class='bx bxs-calendar'></i> September 2025 - Present</div>
+                           <h3>Rumooz Smart Solutions</h3>
+                            <p>
+                                • Developed full-stack web applications using the PERN stack.<br>
+                                • Built scalable front-end and back-end systems for business use.<br>
+                                • Managed deployment and hosting on Windows Server.<br>
+                                • Created custom solutions like quotation and tracking systems.<br>
+                                • Handled client communication and official emails.<br>
+                                • Managed IIS server configuration and web application hosting.<br>
+                                • Configured DNS records and domain management.<br>
+                                • Implemented SSL certificates and ensured secure connections.
+                            </p>
                         </div>
                     </div>
 
@@ -200,109 +350,69 @@
                         </div>
                     </div>
 
-                    <div class="education-content">
-                        <div class="content">
-                            <div class="year"><i class='bx bxs-calendar'></i> Sep 2024 - Feb 2025</div>
-                            <h3>Cloud Application Developer Internship- IBM</h3>
-                            <p> gained hands-on experience working with 
-                                web development and machine learning projects.
-                                coding in Python, working with databases like MySQL
-                                implementing data visualization techniques.
-                                utilize machine learning and software development
-                                for business solutions..</p>
-                        </div>
-                    </div>
+                   
 
-                    <span class="animate scroll" style="--i:6;"></span>
+                    <span class="animate scroll" style="--i:1;"></span>
                 </div>
             </div>
         </div>
     </section>
 
-   <!-- Skills Section -->
-<section class="skills" id="skills">
-    <h2 class="heading">My <span>Skills</span></h2>
 
-    <div class="skills-wrapper">
-        <!-- Left Column: Technical Skills & Certifications -->
-        <div class="skills-column">
-            <div class="skills-box">
-                <h3 class="title">Technical Skills</h3>
-                <div class="progress">
-                    <h3><i class="fab fa-html5"></i> HTML & JavaScript <span class="badge advanced">Advanced</span></h3>
-                    <div class="bar"><span style="--progress: 90%;"></span></div>
-                </div>
-                <div class="progress">
-                    <h3><i class="fab fa-python"></i> Python <span class="badge advanced">Advanced</span></h3>
-                    <div class="bar"><span style="--progress: 80%;"></span></div>
-                </div>
-                <div class="progress">
-                    <h3><i class="fab fa-python"></i> C <span class="badge advanced">Advanced</span></h3>
-                    <div class="bar"><span style="--progress: 80%;"></span></div>
-                </div>
-                <div class="progress">
-                    <h3><i class="fab fa-python"></i> Java <span class="badge advanced">Intermediate</span></h3>
-                    <div class="bar"><span style="--progress: 50%;"></span></div>
-                </div>
-                <div class="progress">
-                    <h3><i class="fas fa-robot"></i> Scikit-learn <span class="badge advanced">Advanced</span></h3>
-                    <div class="bar"><span style="--progress: 90%;"></span></div>
-                </div>
-                <div class="progress">
-                    <h3><i class="fas fa-camera"></i> OpenCV <span class="badge advanced">Advanced</span></h3>
-                    <div class="bar"><span style="--progress: 90%;"></span></div>
-                </div>
-                <div class="progress">
-                    <h3><i class="fab fa-node"></i> Angular.js <span class="badge intermediate">Intermediate</span></h3>
-                    <div class="bar"><span style="--progress: 70%;"></span></div>
-                </div>
-            </div>
 
-        </div>
+<section id="works" class="projects">
+   <h2 class="heading">My <span>Works</span></h2>
 
-        <!-- Right Column: Tools & Technologies & Testimonials -->
-        <div class="skills-column">
-            <div class="tech-grid">
-                <h3 class="title">Tools & Technologies</h3>
-                <div class="tech-item">Python</div>
-                <div class="tech-item">TensorFlow</div>
-                <div class="tech-item">AWS</div>
-                <div class="tech-item">Git</div>
-                <div class="tech-item">Google Colab</div>
-                <div class="tech-item">Jupyter Notebook</div>
-                <div class="tech-item">Anaconda</div>
-                <div class="tech-item">Docker</div>
-                <div class="tech-item">Kubernetes</div>
-                <div class="tech-item">PostgreSQL</div>
-                <div class="tech-item">MongoDB</div>
-            </div>
-
-            <div class="testimonials">
-                <h3 class="title">What People Say</h3>
-                <blockquote>
-                    "Umesh’s AI model has significant use in real world. Highly recommended!" 
-                    <cite>- CodeAlpha Mentor</cite>
-                </blockquote>
-                <blockquote>
-                    "A talented developer with a deep understanding of machine learning and web technologies."
-                    <cite>- Open Source Contributor</cite>
-                </blockquote>
-            </div>
-            <div class="certifications">
-                <h3 class="title">Certifications</h3>
-                <span class="cert-badge">Samsung Prism Certificate</span>
-                <span class="cert-badge">SIC Certificate in Coding and Programming using Python</span>
-                <span class="cert-badge">Infosys Database and SQL</span>
-                <span class="cert-badge">Google Cloud Professional</span>
-            </div>
-        </div>
+  <div class="projects-grid">
+    <!-- Rumooz -->
+    <div class="project-card">
+      <img src="images/rumooz.jpg" alt="Rumooz Logo" class="project-logo">
+      <div class="tech-stack">
+        <span>PERN Stack</span>
+        <span>PostgreSQL</span>
+        <span>React</span>
+        <span>Node.js</span>
+      </div>
+      <h3 class="project-name">Rumooz Smart Solutions</h3>
+      <a href="https://rumooz.ae/" target="_blank" class="project-link">View Official Website</a>
     </div>
-</section>
 
-<!-- Projects section design -->
-<section class="projects" id="projects">
-    <h2 class="heading">My <span>Projects</span></h2>
+    <!-- QForce -->
+    <div class="project-card">
+      <img src="images/QForce.png" alt="QForce Logo" class="project-logo">
+      <div class="tech-stack">
+        <span>React</span>
+        <span>TailwindCSS</span>
+        <span>Responsive UI</span>
+      </div>
+      <h3 class="project-name">QForce</h3>
+      <a href="https://qforce.ae/" target="_blank" class="project-link">View Official Website</a>
+    </div>
 
+    <!-- QHome -->
+    <div class="project-card">
+      <img src="images/QHome.png" alt="QHome Logo" class="project-logo">
+      <div class="tech-stack">
+        <span>React</span>
+        <span>TailwindCSS</span>
+        <span>Full-Stack</span>
+      </div>
+      <h3 class="project-name">QHome</h3>
+      <a href="https://qhome.ae/" target="_blank" class="project-link">View Official Website</a>
+    </div>
+
+    <!-- TheCue -->
+    <div class="project-card">
+      <img src="images/Q.png" alt="TheCue Logo" class="project-logo">
+      <div class="tech-stack">
+        <span>React</span>
+        <span>TailwindCSS</span>
+        <span>SEO Optimized</span>
+      </div>
+      <h3 class="project-name">TheCue</h3>
+      <a href="https://thecue.ae/" target="_blank" class="project-link">View Official Website</a>
+    </div>
+  </div>
     <div class="projects-row">
 
         <div class="project-box">
@@ -426,7 +536,6 @@
                     <span class="focus"></span>
                 </div>
 
-                <span class="animate scroll" style="--i:3;"></span>
             </div>
             <div class="input-box">
                 <div class="input-field">
@@ -438,20 +547,16 @@
                     <span class="focus"></span>
                 </div>
 
-                <span class="animate scroll" style="--i:5;"></span>
             </div>
 
             <div class="textarea-field">
                 <textarea name="" id="" cols="30" rows="10" placeholder="Your Message" required></textarea>
                 <span class="focus"></span>
 
-                <span class="animate scroll" style="--i:7;"></span>
             </div>
 
             <div class="btn-box btns">
                 <button type="submit" class="btn">Submit</button>
-
-                <span class="animate scroll" style="--i:9;"></span>
             </div>
         </form>
     </section>
@@ -463,13 +568,11 @@
                 Maintenance by Umesh Khanal  | All
                 Rights Reserved</p>
 
-            <span class="animate scroll" style="--i:1;"></span>
         </div>
 
         <div class="footer-iconTop">
             <a href="#"><i class='bx bx-up-arrow-alt'></i></a>
 
-            <span class="animate scroll" style="--i:3;"></span>
         </div>
     </footer>
 
