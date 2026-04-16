@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://umeshkhanal.vercel.app/sitemap.xml
