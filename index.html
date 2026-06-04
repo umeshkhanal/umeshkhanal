@@ -821,7 +821,16 @@ How can I assist you today?`,
   if (!q) return;
 
   messages.push({ role: "user", text: q, time: time() });
+       messages.push({
+  role: "bot",
+  text: "",
+  thinking: true,
+  time: time(),
+});
+
   saveMessages();
+        input.value = "";
+        input.style.height = window.innerWidth < 640 ? "34px" : "44px";
   render();
 
   try {
@@ -833,23 +842,25 @@ How can I assist you today?`,
 
     const data = await res.json();
 
-    messages.push({
-      role: "bot",
-      text: data.response || "Thanks for your question!",
-      time: time(),
-    });
+messages.pop(); // remove thinking bubble
+
+messages.push({
+  role: "bot",
+  text: data.response || "Thanks for your question!",
+  time: time(),
+});
 
   } catch (e) {
     const smartReply = getSmartResponse(q);
 
-    messages.push({
-      role: "bot",
-      text: smartReply,
-      time: time(),
-    });
-  }
-        input.value = "";
-        input.style.height = window.innerWidth < 640 ? "34px" : "44px";
+messages.pop(); // remove thinking bubble
+
+messages.push({
+  role: "bot",
+  text: smartReply,
+  time: time(),
+});
+       
 
   saveMessages();
   render();
@@ -866,7 +877,26 @@ How can I assist you today?`,
 
           div.innerHTML = `
             <div class="${m.role === "user" ? "bg-cyan-500 text-white" : "bg-white/20 text-white"} max-w-[80%] px-4 py-3 rounded-2xl">
-              <p class="text-[12px] sm:text-[15px] leading-relaxed">${m.text.replace(/\n/g, "<br>")}</p>
+              ${
+  m.thinking
+    ? `
+      <div class="flex items-center gap-2">
+        <i data-lucide="sparkles" class="w-4 h-4 text-cyan-400"></i>
+        <div class="flex items-center gap-1">
+  <span class="text-cyan-300 text-sm">Thinking</span>
+
+  <span class="w-2 h-2 bg-cyan-400 rounded-full animate-bounce"></span>
+  <span class="w-2 h-2 bg-cyan-400 rounded-full animate-bounce delay-100"></span>
+  <span class="w-2 h-2 bg-cyan-400 rounded-full animate-bounce delay-200"></span>
+</div>
+      </div>
+    `
+    : `
+      <p class="text-[12px] sm:text-[15px] leading-relaxed">
+        ${m.text.replace(/\n/g, "<br>")}
+      </p>
+    `
+}
               <p class="text-[8px] sm:text-[10px] opacity-70 text-right mt-1">${m.time}</p>
             </div>
           `;
