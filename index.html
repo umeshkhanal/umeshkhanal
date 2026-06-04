@@ -849,7 +849,7 @@ How can I assist you today?`,
       time: time(),
     });
   }
-        input.style.height = "auto";
+        input.style.height = window.innerWidth < 640 ? "34px" : "40px";
 
   saveMessages();
   render();
