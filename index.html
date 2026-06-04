@@ -822,7 +822,6 @@ How can I assist you today?`,
 
   messages.push({ role: "user", text: q, time: time() });
   saveMessages();
-        input.value = "";
   render();
 
   try {
@@ -849,6 +848,7 @@ How can I assist you today?`,
       time: time(),
     });
   }
+        input.value = "";
         input.style.height = window.innerWidth < 640 ? "34px" : "44px";
 
   saveMessages();
