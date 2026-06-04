@@ -783,12 +783,10 @@ How can I assist you today?`,
       const container = document.getElementById("messages");
       const input = document.getElementById("question");
 
-      if (input) {
-        input.addEventListener("input", () => {
-          input.style.height = "auto";
-          input.style.height = input.scrollHeight + "px";
-        });
-      }
+      input.addEventListener("input", () => {
+        input.style.height = "auto";
+        input.style.height = input.scrollHeight + "px";
+      });
 
       /* -------------------- OPEN / CLOSE -------------------- */
       if (chatBtn) {
@@ -817,41 +815,44 @@ How can I assist you today?`,
         });
       }
 
-      async function send() {
-        const q = input.value.trim();
-        if (!q) return;
+     async function send() {
+  const q = input.value.trim();
+  if (!q) return;
 
-        messages.push({ role: "user", text: q, time: time() });
-        saveMessages();
+  messages.push({ role: "user", text: q, time: time() });
+  saveMessages();
         input.value = "";
-        render();
+  render();
 
-        try {
-          const res = await fetch("http://localhost:8000/response", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ question: q }),
-          });
+  try {
+    const res = await fetch("http://localhost:8000/response", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ question: q }),
+    });
 
-          const data = await res.json();
-          messages.push({
-            role: "bot",
-            text: data.response || "Thanks for your question!",
-            time: time(),
-          });
-        } catch (e) {
-          // Use smart local response when backend is not available
-          const smartReply = getSmartResponse(q);
-          messages.push({
-            role: "bot",
-            text: smartReply,
-            time: time(),
-          });
-        }
+    const data = await res.json();
+
+    messages.push({
+      role: "bot",
+      text: data.response || "Thanks for your question!",
+      time: time(),
+    });
+
+  } catch (e) {
+    const smartReply = getSmartResponse(q);
+
+    messages.push({
+      role: "bot",
+      text: smartReply,
+      time: time(),
+    });
+  }
         input.style.height = "auto";
-        saveMessages();
-        render();
-      }
+
+  saveMessages();
+  render();
+}
 
       /* -------------------- RENDER -------------------- */
       function render() {
