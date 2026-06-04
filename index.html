@@ -2,13 +2,81 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Umesh AI Assistant</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <meta name="theme-color" content="#0f172a" />
 
+    <title>
+      Umesh Khanal | Full Stack Developer in Abu Dhabi UAE | React & Node.js
+      Expert
+    </title>
+
+    <meta
+      name="description"
+      content="Umesh Khanal is a professional Full Stack Developer in Abu Dhabi UAE from Nepal. Specializing in React, ML, Node.js, and custom business systems with quotation tracking, WhatsApp integration, and modern web apps."
+    />
+    <meta
+      name="keywords"
+      content="Umesh Khanal, full stack developer Abu Dhabi, web developer UAE, Nepal software developer UAE, React developer Abu Dhabi, Machine Learning Engineer UAE, freelance web developer Abu Dhabi, PERN stack developer UAE, website developer Abu Dhabi, custom web application UAE"
+    />
+    <meta name="author" content="Umesh Khanal" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://umeshkhanal.vercel.app/" />
+    <link rel="icon" type="image/jpg" sizes="32x32" href="images/favicon.jpg" />
+    <link rel="icon" type="image/jpg" sizes="16x16" href="/favicon.jpg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.jpg" />
+    <link
+      rel="icon"
+      type="image/jpg"
+      sizes="192x192"
+      href="images/favicon.jpg"
+    />
+    <link rel="shortcut icon" href="images/favicon.jpg" />
+    <meta
+      property="og:title"
+      content="Umesh Khanal | Full Stack Developer in Abu Dhabi UAE"
+    />
+    <meta
+      property="og:description"
+      content="React, WordPress & Node.js expert building modern websites and business systems in UAE."
+    />
+    <meta
+      property="og:image"
+      content="https://umeshkhanal.vercel.app/images/favicon.jpg"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://umeshkhanal.vercel.app/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Umesh Khanal | Full Stack Developer in Abu Dhabi UAE"
+    />
+    <meta
+      name="twitter:description"
+      content="Professional full stack developer specializing in React, WordPress, and custom web solutions."
+    />
+    <meta
+      name="twitter:image"
+      content="https://umeshkhanal.vercel.app/images/favicon.jpg"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <!-- Tailwind CSS and Lucide for chatbot -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
+      /* Your existing styles */
       .no-scrollbar::-webkit-scrollbar {
         display: none;
       }
@@ -16,76 +84,661 @@
         scrollbar-width: none;
         -ms-overflow-style: none;
       }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+        justify-items: center;
+      }
+
+      .project-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        text-align: center;
+        transition:
+          transform 0.4s ease,
+          box-shadow 0.4s ease;
+        backdrop-filter: blur(12px);
+        width: 100%;
+        max-width: 280px;
+        padding: 15px;
+      }
+      .project-card:hover {
+        transform: translateY(-6px) scale(1.05);
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
+      }
+
+      .project-logo {
+        width: 100%;
+        height: 180px;
+        object-fit: contain;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 8px;
+        margin-bottom: 12px;
+      }
+
+      .tech-stack {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
+        margin-bottom: 12px;
+      }
+      .tech-stack span {
+        background: rgba(236, 72, 153, 0.15);
+        color: #ec4899;
+        font-size: 0.75rem;
+        font-weight: 500;
+        padding: 4px 10px;
+        border-radius: 20px;
+      }
+
+      .project-name {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 12px;
+      }
+
+      .project-link {
+        display: inline-block;
+        padding: 7px 18px;
+        border-radius: 25px;
+        background: #ec4899;
+        color: #fff;
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 0.85rem;
+      }
+      .project-link:hover {
+        background: #d63684;
+      }
+
+      @media (max-width: 1200px) {
+        .projects-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 800px) {
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .view-code {
+        display: inline-block;
+        padding: 8px 20px;
+        background: #00abf0;
+        color: #081b29;
+        border-radius: 30px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+      .view-code:hover {
+        background: #ec4899;
+        color: white;
+      }
+
+      /* Ensure body background stays as original */
+      body {
+        background: #081b29;
+      }
+
+      /* Override any tailwind body styles */
+      body.bg-gradient-to-br {
+        background: #081b29 !important;
+      }
     </style>
   </head>
 
-  <body
-    class="h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
-  >
+  <body>
+    <!-- header design -->
+    <header class="header">
+      <a href="#" class="logo">Umesh/Khanal</a>
+      <div class="bx bx-menu" id="menu-icon"></div>
+      <nav class="navbar">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#works">Work</a>
+        <a href="#contact">Contact</a>
+        <span class="active-nav"></span>
+      </nav>
+    </header>
+
+    <!-- home section design -->
+    <section class="home show-animate" id="home">
+      <div class="home-content">
+        <h1>
+          Hi, I'm <span>Umesh Khanal</span
+          ><span class="animate" style="--i: 2"></span>
+        </h1>
+        <div class="text-animate">
+          <h3>Full Stack Developer</h3>
+          <span class="animate" style="--i: 3"></span>
+        </div>
+        <p>
+          I am a results-driven Full Stack Developer specializing in the PERN
+          stack (PostgreSQL, Express.js, React, Node.js), with strong expertise
+          in building scalable web applications and custom business systems. I
+          also develop cross-platform mobile applications using React Native and
+          Expo, delivering smooth and efficient user experiences. Alongside
+          development, I have a solid background in Machine Learning and Data
+          Science, with hands-on experience using TensorFlow and PyTorch to
+          build intelligent solutions. My technical skill set includes
+          JavaScript, Python, and modern frameworks such as React, Node.js,
+          Django, and Flask, allowing me to create powerful, end-to-end digital
+          solutions.
+          <span class="animate" style="--i: 4"></span>
+        </p>
+      </div>
+      <div class="home-sci">
+        <a href="https://www.facebook.com/umesh.khanal.7777"
+          ><i class="bx bxl-facebook"></i
+        ></a>
+        <a href="https://www.instagram.com/umeshkhanal912/"
+          ><i class="bx bxl-instagram"></i
+        ></a>
+        <a href="https://www.linkedin.com/in/umesh-khanal/"
+          ><i class="bx bxl-linkedin"></i
+        ></a>
+        <span class="animate" style="--i: 6"></span>
+      </div>
+      <div class="home-imgHover">
+        <div class="image-container" data-tilt>
+          <div class="circle-spin"></div>
+          <img src="images/about.jpg" alt="Umesh Khanal" class="home-img" />
+        </div>
+      </div>
+      <span class="animate home-img" style="--i: 7"></span>
+    </section>
+
+    <!-- about section design -->
+    <section class="about" id="about">
+      <h2 class="heading">About <span>Me</span></h2>
+      <div class="about-img">
+        <img src="images/umeshLogo.jpg" alt="" />
+        <span class="circle-spin"></span>
+      </div>
+      <div class="about-content">
+        <h3>
+          Hi there! Glad to see you here.<span
+            class="animate scroll"
+            style="--i: 1"
+          ></span>
+        </h3>
+        <p>
+          Hello, I am Umesh Khanal.<br />
+          A passionate technology enthusiast and recent Information Science and
+          Engineering graduate from VTU University, Karnataka.With a strong
+          foundation in software development, Machine Learning, and Data
+          Science. I am eager to apply my academic knowledge and technical
+          skills in a professional environment.
+          <span class="animate scroll" style="--i: 1"></span>
+        </p>
+        <div class="btn-box btns">
+          <a href="#contact" class="btn">Contact Me</a>
+          <span class="animate scroll" style="--i: 1"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- education section design -->
+    <section class="education" id="education">
+      <h2 class="heading">My <span>Journey</span></h2>
+      <div class="education-row">
+        <div class="education-column">
+          <h3 class="title">Education</h3>
+          <div class="education-box">
+            <div class="education-content">
+              <div class="content">
+                <div class="year">
+                  <i class="bx bxs-calendar"></i> 2017 - 2018
+                </div>
+                <h3>SEE - NEB Nepal (CGPA-3.5/4)</h3>
+                <p>
+                  Consistently demonstrated strong academic performance laying
+                  the foundation for future studies in science and technology.
+                </p>
+              </div>
+            </div>
+            <div class="education-content">
+              <div class="content">
+                <div class="year">
+                  <i class="bx bxs-calendar"></i> 2018 - 2019
+                </div>
+                <h3>Omega International College-NEB Nepal (CGPA-3.54/4)</h3>
+                <p>
+                  Excelled in subjects like Mathematics, Physics, and Computer
+                  Science, which fueled my passion for technology.
+                </p>
+              </div>
+            </div>
+            <div class="education-content">
+              <div class="content">
+                <div class="year">
+                  <i class="bx bxs-calendar"></i> 2021 - 2025
+                </div>
+                <h3>Bachelor Degree - VTU University (CGPA-9.5/10)</h3>
+                <p>
+                  Proficient in programming languages, machine learning, web
+                  development. Projects: Speech Emotion Recognition App, NL to
+                  SQL Converter.
+                </p>
+              </div>
+            </div>
+            <span class="animate scroll" style="--i: 1"></span>
+          </div>
+        </div>
+        <div class="education-column">
+          <h3 class="title">Experience</h3>
+          <div class="education-box">
+            <div class="education-content">
+              <div class="content">
+                <div class="year">
+                  <i class="bx bxs-calendar"></i> September 2025 - Present
+                </div>
+                <h3>Rumooz Smart Solutions</h3>
+                <p>
+                  • Developed full-stack web applications using the PERN
+                  stack.<br />
+                  • Built scalable front-end and back-end systems for business
+                  use.<br />
+                  • Managed deployment and hosting on Windows Server.<br />
+                  • Created custom solutions like quotation and tracking
+                  systems.<br />
+                  • Handled client communication and official emails.<br />
+                  • Managed IIS server configuration and web application
+                  hosting.<br />
+                  • Configured DNS records and domain management.<br />
+                  • Implemented SSL certificates and ensured secure connections.
+                </p>
+              </div>
+            </div>
+            <div class="education-content">
+              <div class="content">
+                <div class="year">
+                  <i class="bx bxs-calendar"></i> Jan 2023 - April 2023
+                </div>
+                <h3>Machine Learning and AI Intern - Samsung PRISM</h3>
+                <p>
+                  Worked on projects involving Large Language Models, Prompt
+                  Engineering, and AI model development. Contributed to the
+                  GenAI - Prompt Generation project.
+                </p>
+              </div>
+            </div>
+            <span class="animate scroll" style="--i: 1"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="works" class="projects">
+   <h2 class="heading">My <span>Works</span></h2>
+
+  <div class="projects-grid">
+    <!-- Rumooz -->
+    <div class="project-card">
+      <img src="images/rumooz.png" alt="Rumooz Logo" class="project-logo">
+      <div class="tech-stack">
+        <span>PERN Stack</span>
+        <span>PostgreSQL</span>
+        <span>React</span>
+        <span>Node.js</span>
+      </div>
+      <h3 class="project-name">Rumooz Smart Solutions</h3>
+      <a href="https://rumooz.ae/" target="_blank" class="project-link">View Official Website</a>
+    </div>
+
+    <!-- QForce -->
+    <div class="project-card">
+      <img src="images/QForce.png" alt="QForce Logo" class="project-logo">
+      <div class="tech-stack">
+        <span>React</span>
+        <span>TailwindCSS</span>
+        <span>Responsive UI</span>
+      </div>
+      <h3 class="project-name">QForce</h3>
+      <a href="https://qforce.ae/" target="_blank" class="project-link">View Official Website</a>
+    </div>
+
+    <!-- QHome -->
+    <div class="project-card">
+      <img src="images/QHome.png" alt="QHome Logo" class="project-logo">
+      <div class="tech-stack">
+        <span>React</span>
+        <span>TailwindCSS</span>
+        <span>Full-Stack</span>
+      </div>
+      <h3 class="project-name">QHome</h3>
+      <a href="https://qhome.ae/" target="_blank" class="project-link">View Official Website</a>
+    </div>
+
+    <!-- TheCue -->
+    <div class="project-card">
+      <img src="images/Q.png" alt="TheCue Logo" class="project-logo">
+      <div class="tech-stack">
+        <span>React</span>
+        <span>TailwindCSS</span>
+        <span>SEO Optimized</span>
+      </div>
+      <h3 class="project-name">TheCue</h3>
+      <a href="https://thecue.ae/" target="_blank" class="project-link">View Official Website</a>
+    </div>
+  </div>
+    <div class="projects-row">
+
+        <div class="project-box">
+            <h3>QueryPilot: AI-Powered SQL Query Generator</h3>
+        
+            <div class="tech-stack">
+                <span>Flask</span> <span>SQLite</span> <span>Pandas</span> 
+                <span>Generative AI</span> <span>TailwindCSS</span> <span>NLP</span>
+            </div>
+            <br><br>
+            <p>
+                QueryPilot is an AI-powered tool that transforms natural language queries into SQL commands, 
+                simplifying database interactions for users with minimal SQL knowledge. It features:
+            </p>
+        
+            <br>
+            <ul style="text-align: left; padding-left: 20px; list-style-type: disc;">
+                <li><strong>NLP-driven SQL generation</strong></li>
+                <li><strong>Interactive and responsive UI</strong></li>
+                <li><strong>Secure execution of SQL queries</strong></li>
+                <li><strong>Efficient handling of large datasets with a "See More" option</strong></li>
+            </ul>
+            <br><br>
+            <a href="https://github.com/umeshkhanal/NaturalLanguageToSQLQueryUsingGoogleGemini" class="view-code">🔗 View Code on GitHub</a>
+        </div>
+        
+        <div class="project-box">
+            <h3>ChatBot: AI-Powered Chatbot for Cambridge Institute of Technology</h3>
+        
+            <div class="tech-stack">
+                <span>Flask</span> <span>TensorFlow</span> <span>TF-IDF</span> 
+                <span>Cosine Similarity</span> <span>TailwindCSS</span> <span>NLP</span>
+            </div>
+            <br><br>
+            <p>
+                ChatBot is an AI-driven chatbot designed to provide real-time information about 
+                Cambridge Institute of Technology, Bangalore. It helps students and visitors with 
+                queries related to admissions, programs, and campus facilities. Features include:
+            </p>
+            <br>
+            <ul style="text-align: left; padding-left: 20px; list-style-type: disc;">
+                <li><strong>TF-IDF & Cosine Similarity for intent matching</strong></li>
+                <li><strong>Interactive, full-screen chat interface</strong></li>
+                <li><strong>Real-time query handling with instant responses</strong></li>
+                <li><strong>Optimized for a seamless user experience</strong></li>
+            </ul>
+            <br><br>
+            <a href="https://github.com/umeshkhanal/ChatbotUsingTrainedModel" class="view-code">🔗 View Code on GitHub</a>
+        </div>
+        
+
+        <div class="project-box">
+            <h3>Speech Emotion Recognition App</h3>
+        
+            <div class="tech-stack">
+                <span>Python</span> <span>TensorFlow</span> <span>Streamlit</span> 
+                <span>Librosa</span> <span>Flask</span> <span>CNN</span> <span>LSTM</span>
+            </div>
+        <br><br>
+            <p>
+                A deep learning-powered application that classifies emotions from speech input. 
+                This app processes audio recordings to detect emotions such as happiness, sadness, 
+                anger, and neutrality. Features include:
+            </p>
+        <br>
+            <ul style="text-align: left; padding-left: 20px; list-style-type: disc;">
+                <li><strong>MFCC and Mel-spectrogram-based feature extraction</strong></li>
+                <li><strong>Trained CNN/LSTM model for accurate emotion classification</strong></li>
+                <li><strong>Real-time audio processing and visualization</strong></li>
+                <li><strong>Streamlit-based interactive UI for ease of use</strong></li>
+            </ul>
+            <br><br>
+            <a href="https://github.com/umeshkhanal/SpeechEmotionRecognitionApp" class="view-code">🔗 View Code on GitHub</a>
+        </div>
+        
+
+        <div class="project-box">
+            <h3>CODEGURU: AI-Powered Technical Mentor</h3>
+        
+            <div class="tech-stack">
+                <span>Langchain</span> <span>Google Generative AI (Gemini Pro)</span> 
+                <span>Django</span> <span>Flask</span> <span>LLM</span> <span>Memory Store</span>
+            </div>
+             <br><br>
+            <p>
+                CODEGURU is an AI-driven chatbot designed to assist developers with technical guidance. 
+                It provides real-time support for coding, project timelines, and skill development. 
+                Features include:
+            </p><br>
+        
+            <ul style="text-align: left; padding-left: 20px; list-style-type: disc;">
+                <li><strong>AI-powered code generation & debugging</strong></li>
+                <li><strong>Step-by-step project guidance</strong></li>
+                <li><strong>Skill & tool recommendations based on queries</strong></li>
+                <li><strong>Conversational memory for personalized interactions</strong></li>
+            </ul>
+            <br><br>
+            <a href="https://github.com/umeshkhanal/ChatbotUsingAgent" class="view-code">🔗 View Code on GitHub</a>
+        </div>
+        
+
+
+
+
+</section>
+
+
+    <!-- contact section design -->
+    <section class="contact" id="contact">
+      <h2 class="heading">Contact <span>Me</span></h2>
+      <form
+        action="mailto:khanalumesh14@gmail.com"
+        method="post"
+        enctype="text/plain"
+      >
+        <div class="input-box">
+          <div class="input-field">
+            <input type="text" placeholder="Full Name" required /><span
+              class="focus"
+            ></span>
+          </div>
+          <div class="input-field">
+            <input type="text" placeholder="Email" required /><span
+              class="focus"
+            ></span>
+          </div>
+        </div>
+        <div class="input-box">
+          <div class="input-field">
+            <input type="number" placeholder="Mobile Number" required /><span
+              class="focus"
+            ></span>
+          </div>
+          <div class="input-field">
+            <input type="text" placeholder="Email Subject" required /><span
+              class="focus"
+            ></span>
+          </div>
+        </div>
+        <div class="textarea-field">
+          <textarea
+            cols="30"
+            rows="10"
+            placeholder="Your Message"
+            required
+          ></textarea>
+          <span class="focus"></span>
+        </div>
+        <div class="btn-box btns">
+          <button type="submit" class="btn">Submit</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- footer design -->
+    <footer class="footer">
+      <div class="footer-text">
+        <p>
+          Copyright &copy; 2025 | Designed and Maintenance by Umesh Khanal | All
+          Rights Reserved
+        </p>
+      </div>
+      <div class="footer-iconTop">
+        <a href="#"><i class="bx bx-up-arrow-alt"></i></a>
+      </div>
+    </footer>
+
+    <!-- ========== CHATBOT INTEGRATION (exactly as requested) ========== -->
     <!-- Chat Button -->
     <button
       id="chatButton"
-      class="fixed bottom-5 right-5 md:bottom-6 md:right-6 z-50 w-14 h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all"
+      class="fixed z-[10000] bottom-[24px] right-[24px] w-24 h-24 rounded-full bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 flex items-center justify-center shadow-[0_0_60px_rgba(34,211,238,0.9)] hover:scale-110 active:scale-95 transition-all"
     >
-      <i data-lucide="message-circle" class="w-6 h-6 text-white"></i>
+      <!-- OUTER PULSE (SAFE VERSION) -->
+      <span
+        class="absolute inset-0 rounded-full bg-cyan-400/30 animate-ping"
+      ></span>
+
+      <!-- INNER GLOW -->
+      <span class="absolute inset-2 rounded-full bg-cyan-300/20 blur-md"></span>
+      <i data-lucide="bot" class="w-10 h-10 text-white"></i>
     </button>
 
     <!-- Backdrop -->
-    <div id="backdrop" class="hidden fixed inset-0 bg-black/30 z-40"></div>
+    <div id="backdrop" class="hidden fixed inset-0 bg-black/40 z-[99990]"></div>
 
     <!-- Chat Window -->
     <div
       id="chatWindow"
-      class="hidden fixed z-50 bottom-0 right-0 w-full h-[85vh] sm:bottom-6 sm:right-6 sm:w-[400px] sm:h-[650px] bg-slate-900/95 backdrop-blur-xl border border-white/10 rounded-t-3xl sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden"
+      class="hidden fixed z-[99999] bottom-0 right-4 w-[300px] h-[65vh] sm:bottom-6 sm:right-6 sm:w-[400px] sm:h-[650px] bg-slate-900/95 backdrop-blur-xl border border-white/10 rounded-t-3xl sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden"
     >
       <!-- Header -->
-      <div class="px-5 py-4 border-b border-white/10 flex items-center gap-3">
-        <div
-          class="w-11 h-11 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 flex items-center justify-center text-white"
-        >
-          <i data-lucide="sparkles" class="w-5 h-5"></i>
+      <div
+        class="px-6 py-5 border-b border-white/10 bg-gradient-to-r from-black/70 via-slate-900/80 to-black/70 backdrop-blur-xl flex items-center justify-between"
+      >
+        <!-- LEFT -->
+        <div class="flex items-center gap-5">
+          <div
+            class="w-16 h-16 rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 flex items-center justify-center text-white shadow-[0_0_35px_rgba(34,211,238,0.6)]"
+          >
+            <i data-lucide="sparkles" class="w-8 h-8"></i>
+          </div>
+
+          <div class="leading-snug">
+            <h2 class="text-white text-[16px] sm:text-[20px] font-bold tracking-wide">
+              AI Assistant
+            </h2>
+
+            <p class="text-cyan-300 text-sm font-medium">
+              Powered by
+              <span class="text-white font-semibold">Umesh Khanal</span>
+            </p>
+          </div>
         </div>
 
-        <div>
-          <h2 class="text-white font-semibold">AI Assistant</h2>
-          <p class="text-green-400 text-xs">● Online</p>
+        <!-- RIGHT STATUS PILL -->
+        <div
+          class="flex items-center gap-2 bg-black/40 px-4 py-1.5 rounded-full border border-green-400/20 shadow-inner"
+        >
+          <span
+            class="w-2.5 h-2.5 bg-green-400 rounded-full animate-pulse"
+          ></span>
+
+          <span class="text-green-300 text-sm font-semibold tracking-wide">
+            Online
+          </span>
         </div>
       </div>
 
       <!-- Messages -->
       <div
         id="messages"
-        class="flex-1 overflow-y-auto p-4 space-y-4 no-scrollbar"
+        class="flex-1 overflow-y-auto p-4 space-y-5 no-scrollbar"
       ></div>
 
       <!-- Input -->
-      <div class="p-4 border-t border-white/10 bg-black/20">
+      <div class="p-5 border-t border-white/10 bg-black/20">
         <div class="flex gap-2 bg-white rounded-2xl p-2">
           <textarea
             id="question"
             rows="1"
-            class="flex-1 px-3 py-2 outline-none bg-transparent resize-none max-h-32 overflow-y-auto"
+            class="flex-1 px-4 py-3 text-[12px] sm:text-[15px] leading-relaxed outline-none bg-transparent resize-none max-h-32 overflow-y-auto text-gray-900"
             placeholder="Type your message..."
           ></textarea>
-
           <button
             id="send"
-            class="bg-cyan-500 hover:bg-cyan-600 text-white px-4 py-2 rounded-xl flex items-center justify-center"
+            class="w-14 h-14 flex items-center justify-center rounded-xl bg-cyan-500 hover:bg-cyan-600 active:scale-95 transition shadow-[0_0_15px_rgba(34,211,238,0.4)] self-end mb-1"
           >
-            <i data-lucide="send" class="w-5 h-5"></i>
+            <i data-lucide="send" class="w-8 h-8 text-white"></i>
           </button>
         </div>
       </div>
     </div>
 
     <script>
-      let isOpen = false;
-
+      // Chatbot functionality - exactly as requested with smart fallback responses
       function time() {
         return new Date().toLocaleTimeString([], {
           hour: "2-digit",
           minute: "2-digit",
         });
+      }
+
+      // Smart local responses when backend is not available
+      function getSmartResponse(question) {
+        const q = question.toLowerCase();
+
+        if (q.includes("react") || q.includes("frontend")) {
+          return "Umesh is an expert in React.js! He builds modern, responsive UIs with React Hooks, Context API, Redux, and TailwindCSS. His React projects include QForce, QHome, and Rumooz platforms.";
+        }
+        if (
+          q.includes("node") ||
+          q.includes("backend") ||
+          q.includes("express")
+        ) {
+          return "Umesh has extensive backend experience with Node.js and Express.js. He builds RESTful APIs, authentication systems, and full-stack PERN applications. He also manages server deployment, IIS, SSL certificates, and DNS configurations.";
+        }
+        if (
+          q.includes("machine learning") ||
+          q.includes("ml") ||
+          q.includes("ai") ||
+          q.includes("tensorflow")
+        ) {
+          return "Umesh has strong ML/AI expertise! He built Speech Emotion Recognition using CNNs/LSTMs, NLP chatbots with TF-IDF, LLM applications, and completed an AI internship at Samsung PRISM working on GenAI and Prompt Engineering.";
+        }
+        if (q.includes("project") || q.includes("portfolio")) {
+          return "Key projects by Umesh: QueryPilot (AI SQL generator), Speech Emotion Recognition App, CODEGURU (AI technical mentor), and full-stack business systems. He also developed rumooz.ae, qforce.ae, qhome.ae, and thecue.ae.";
+        }
+        if (
+          q.includes("experience") ||
+          q.includes("rumooz") ||
+          q.includes("work")
+        ) {
+          return "Umesh currently works as Full Stack Developer at Rumooz Smart Solutions in Abu Dhabi, UAE. He develops PERN stack apps, manages Windows Server/IIS, SSL, DNS, and client communications. Previously, he was an ML/AI intern at Samsung PRISM.";
+        }
+        if (q.includes("education") || q.includes("degree")) {
+          return "Umesh holds a Bachelor's degree in Information Science & Engineering from VTU University, Karnataka with an impressive CGPA of 9.5/10. He also completed his schooling from Omega International College, Nepal with excellent grades.";
+        }
+        if (q.includes("skill") || q.includes("technologies")) {
+          return "Umesh's tech stack: JavaScript/TypeScript, Python, React, Node.js, Express, PostgreSQL, MongoDB, TailwindCSS, Flask, Django, TensorFlow, PyTorch, React Native, Git, and various cloud platforms.";
+        }
+        if (q.includes("contact") || q.includes("email")) {
+          return "You can contact Umesh via the contact form on this website, or directly email him at khanalumesh14@gmail.com. He's also active on LinkedIn (linkedin.com/in/umesh-khanal).";
+        }
+        if (q.includes("hello") || q.includes("hi")) {
+          return "Hello there! 👋 I'm Umesh's AI assistant. Feel free to ask about his full-stack development skills, machine learning projects, work experience, education, or anything else you'd like to know!";
+        }
+
+        return "Thanks for your question! Umesh specializes in PERN stack development, Machine Learning, and custom web applications. Could you ask about his skills (React/Node/Python), projects, work experience at Rumooz, education, or AI/ML expertise? I'm here to help!";
       }
 
       /* -------------------- MEMORY (SESSION STORAGE) -------------------- */
@@ -112,29 +765,39 @@ How can I assist you today?`,
       const container = document.getElementById("messages");
       const input = document.getElementById("question");
 
-      input.addEventListener("input", () => {
-        input.style.height = "auto";
-        input.style.height = input.scrollHeight + "px";
-      });
+      if (input) {
+        input.addEventListener("input", () => {
+          input.style.height = "auto";
+          input.style.height = input.scrollHeight + "px";
+        });
+      }
 
       /* -------------------- OPEN / CLOSE -------------------- */
-      chatBtn.onclick = () => {
-        chatWindow.classList.remove("hidden");
-        backdrop.classList.remove("hidden");
-        render();
-      };
+      if (chatBtn) {
+        chatBtn.onclick = () => {
+          chatWindow.classList.remove("hidden");
+          backdrop.classList.remove("hidden");
+          render();
+          if (input) input.focus();
+        };
+      }
 
-      backdrop.onclick = () => {
-        chatWindow.classList.add("hidden");
-        backdrop.classList.add("hidden");
-      };
+      if (backdrop) {
+        backdrop.onclick = () => {
+          chatWindow.classList.add("hidden");
+          backdrop.classList.add("hidden");
+        };
+      }
 
       /* -------------------- SEND -------------------- */
-      document.getElementById("send").onclick = send;
+      const sendBtn = document.getElementById("send");
+      if (sendBtn) sendBtn.onclick = send;
 
-      input.addEventListener("keydown", (e) => {
-        if (e.key === "Enter") send();
-      });
+      if (input) {
+        input.addEventListener("keydown", (e) => {
+          if (e.key === "Enter") send();
+        });
+      }
 
       async function send() {
         const q = input.value.trim();
@@ -153,16 +816,17 @@ How can I assist you today?`,
           });
 
           const data = await res.json();
-
           messages.push({
             role: "bot",
-            text: data.response,
+            text: data.response || "Thanks for your question!",
             time: time(),
           });
         } catch (e) {
+          // Use smart local response when backend is not available
+          const smartReply = getSmartResponse(q);
           messages.push({
             role: "bot",
-            text: "Server not reachable",
+            text: smartReply,
             time: time(),
           });
         }
@@ -173,6 +837,7 @@ How can I assist you today?`,
 
       /* -------------------- RENDER -------------------- */
       function render() {
+        if (!container) return;
         container.innerHTML = "";
 
         messages.forEach((m) => {
@@ -180,26 +845,29 @@ How can I assist you today?`,
           div.className = `flex ${m.role === "user" ? "justify-end" : "justify-start"}`;
 
           div.innerHTML = `
-      <div class="${
-        m.role === "user" ? "bg-cyan-500 text-white" : "bg-white/20 text-white"
-      } max-w-[80%] px-4 py-3 rounded-2xl">
-        <p>${m.text.replace(/\n/g, "<br>")}</p>
-        <p class="text-[10px] opacity-70 text-right mt-1">${m.time}</p>
-      </div>
-    `;
-
+            <div class="${m.role === "user" ? "bg-cyan-500 text-white" : "bg-white/20 text-white"} max-w-[80%] px-4 py-3 rounded-2xl">
+              <p class="text-[12px] sm:text-[15px] leading-relaxed">${m.text.replace(/\n/g, "<br>")}</p>
+              <p class="text-[8px] sm:text-[10px] opacity-70 text-right mt-1">${m.time}</p>
+            </div>
+          `;
           container.appendChild(div);
         });
 
         container.scrollTop = container.scrollHeight;
 
         // re-init icons
-        lucide.createIcons();
+        if (typeof lucide !== "undefined") {
+          lucide.createIcons();
+        }
       }
 
       /* -------------------- INIT -------------------- */
       render();
-      lucide.createIcons();
+      if (typeof lucide !== "undefined") {
+        lucide.createIcons();
+      }
     </script>
+
+    <script src="script.js"></script>
   </body>
 </html>
