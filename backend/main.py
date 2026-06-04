@@ -78,8 +78,8 @@ Style rules:
 - Keep response concise (max 2–3 sentences)
 - Do not repeat instructions or question
 """
-    if user_question:
-        return {"response":"This is example response."}
+    #if user_question:
+    #    return {"response":"This is example response."}
     
     try:
         response = client.models.generate_content(
