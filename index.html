@@ -88,7 +88,6 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
 
     <!-- Tailwind CSS and Lucide for chatbot -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -821,16 +820,15 @@ How can I assist you today?`,
   if (!q) return;
 
   messages.push({ role: "user", text: q, time: time() });
-       messages.push({
+  messages.push({
   role: "bot",
   text: "",
   thinking: true,
   time: time(),
 });
-
   saveMessages();
-        input.value = "";
-        input.style.height = window.innerWidth < 640 ? "34px" : "44px";
+  input.value = "";
+input.style.height = window.innerWidth < 640 ? "34px" : "44px";
   render();
 
   try {
@@ -860,7 +858,8 @@ messages.push({
   text: smartReply,
   time: time(),
 });
-       
+  }
+        
 
   saveMessages();
   render();
@@ -884,6 +883,7 @@ messages.push({
         <i data-lucide="sparkles" class="w-4 h-4 text-cyan-400"></i>
         <div class="flex items-center gap-1">
   <span class="text-cyan-300 text-sm">Thinking</span>
+
   <span class="w-2 h-2 bg-cyan-400 rounded-full animate-bounce"></span>
   <span class="w-2 h-2 bg-cyan-400 rounded-full animate-bounce delay-100"></span>
   <span class="w-2 h-2 bg-cyan-400 rounded-full animate-bounce delay-200"></span>
