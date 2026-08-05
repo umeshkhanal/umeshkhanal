@@ -409,7 +409,7 @@
         <span>Node.js</span>
       </div>
       <h3 class="project-name">Rumooz Smart Solutions</h3>
-      <a href="https://rumooz.ae/" target="_blank" class="project-link">View Official Website</a>
+      <a href="https://rumooz.ae/"  class="project-link">View Official Website</a>
     </div>
 
     <!-- QForce -->
@@ -421,7 +421,7 @@
         <span>Responsive UI</span>
       </div>
       <h3 class="project-name">QForce</h3>
-      <a href="https://qforce.ae/" target="_blank" class="project-link">View Official Website</a>
+      <a href="https://qforce.ae/"  class="project-link">View Official Website</a>
     </div>
 
     <!-- QHome -->
@@ -433,7 +433,7 @@
         <span>Full-Stack</span>
       </div>
       <h3 class="project-name">QHome</h3>
-      <a href="https://qhome.ae/" target="_blank" class="project-link">View Official Website</a>
+      <a href="https://qhome.ae/"  class="project-link">View Official Website</a>
     </div>
 
     <!-- TheCue -->
@@ -445,7 +445,7 @@
         <span>SEO Optimized</span>
       </div>
       <h3 class="project-name">TheCue</h3>
-      <a href="https://thecue.ae/" target="_blank" class="project-link">View Official Website</a>
+      <a href="https://thecue.ae/"  class="project-link">View Official Website</a>
     </div>
   </div>
     <div class="projects-row">
@@ -616,20 +616,41 @@
     </footer>
 
     <!-- ========== CHATBOT INTEGRATION (exactly as requested) ========== -->
-    <!-- Chat Button -->
-    <button
-      id="chatButton"
-      class="fixed z-[10000] bottom-[24px] right-[24px] w-24 h-24 rounded-full bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 flex items-center justify-center shadow-[0_0_60px_rgba(34,211,238,0.9)] hover:scale-110 active:scale-95 transition-all"
-    >
-      <!-- OUTER PULSE (SAFE VERSION) -->
-      <span
-        class="absolute inset-0 rounded-full bg-cyan-400/30 animate-ping"
-      ></span>
+<!-- ========== FLOATING ACTION BUTTONS ========== -->
+<div class="fixed z-[10000] bottom-[24px] right-[24px] flex flex-col items-center gap-4">
+  
+  <!-- WhatsApp Button -->
+  <a
+    href="https://wa.me/971553531996"
+    class="group relative w-20 h-20 rounded-full bg-gradient-to-br from-[#25D366] to-[#128C7E] flex items-center justify-center shadow-[0_0_40px_rgba(37,211,102,0.5)] hover:shadow-[0_0_60px_rgba(37,211,102,0.8)] hover:scale-110 active:scale-95 transition-all duration-300"
+    aria-label="WhatsApp"
+  >
+    <span class="absolute inset-0 rounded-full bg-[#25D366]/20 group-hover:bg-[#25D366]/40 animate-ping group-hover:animate-none"></span>
+    <span class="absolute inset-1 rounded-full bg-gradient-to-br from-white/20 to-transparent"></span>
+    <i class="bx bxl-whatsapp text-5xl text-white relative z-10 drop-shadow-lg"></i>
+  </a>
 
-      <!-- INNER GLOW -->
-      <span class="absolute inset-2 rounded-full bg-cyan-300/20 blur-md"></span>
-      <i data-lucide="bot" class="w-10 h-10 text-white"></i>
-    </button>
+  <!-- Call Button -->
+  <a
+    href="tel:+971553531996"
+    class="group relative w-20 h-20 rounded-full bg-gradient-to-br from-[#34B7F1] to-[#1DA1F2] flex items-center justify-center shadow-[0_0_40px_rgba(52,183,241,0.5)] hover:shadow-[0_0_60px_rgba(52,183,241,0.8)] hover:scale-110 active:scale-95 transition-all duration-300"
+    aria-label="Call"
+  >
+    <span class="absolute inset-0 rounded-full bg-[#34B7F1]/20 group-hover:bg-[#34B7F1]/40 animate-ping group-hover:animate-none"></span>
+    <span class="absolute inset-1 rounded-full bg-gradient-to-br from-white/20 to-transparent"></span>
+    <i class="bx bx-phone-call text-5xl text-white relative z-10 drop-shadow-lg"></i>
+  </a>
+
+  <!-- Chat Button (existing) -->
+  <button
+    id="chatButton"
+    class="group relative w-20 h-20 rounded-full bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 flex items-center justify-center shadow-[0_0_60px_rgba(34,211,238,0.7)] hover:shadow-[0_0_80px_rgba(34,211,238,1)] hover:scale-110 active:scale-95 transition-all duration-300"
+  >
+    <span class="absolute inset-0 rounded-full bg-cyan-400/20 group-hover:bg-cyan-400/40 animate-ping group-hover:animate-none"></span>
+    <span class="absolute inset-1 rounded-full bg-gradient-to-br from-white/20 to-transparent"></span>
+    <i data-lucide="bot" class="w-10 h-10 text-white relative z-10 drop-shadow-lg"></i>
+  </button>
+</div>
 
     <!-- Backdrop -->
     <div id="backdrop" class="hidden fixed inset-0 bg-black/40 z-[99990]"></div>
