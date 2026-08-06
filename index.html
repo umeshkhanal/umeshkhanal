@@ -720,7 +720,7 @@
         <!-- Desktop -->
         <div class="hidden md:flex items-center justify-between py-4">
           <a
-            href="#home"
+            href=""
             class="text-lg font-bold font-['Sora'] tracking-tight"
           >
             Umesh<span class="text-[#00abf0]">/</span>Khanal
@@ -737,7 +737,7 @@
           <a
             href="#contact"
             data-section="contact"
-            class="nav-btn inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-[#00abf0] to-[#2563eb] shadow-lg shadow-[#00abf0]/25 hover:shadow-xl hover:shadow-[#00abf0]/40 transition-all duration-300 hover:scale-105"
+            class="nav-button inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-[#00abf0] to-[#2563eb] shadow-lg shadow-[#00abf0]/25 hover:shadow-xl hover:shadow-[#00abf0]/40 transition-all duration-300 hover:scale-105"
           >
             Hire Me
           </a>
@@ -747,7 +747,7 @@
         <div class="md:hidden py-3">
           <div class="flex items-center justify-between mb-3">
             <a
-              href="#home"
+              href=""
               class="text-lg font-bold font-['Sora'] tracking-tight"
             >
               Umesh<span class="text-[#00abf0]">/</span>Khanal
@@ -755,7 +755,7 @@
             <a
               href="#contact"
               data-section="contact"
-              class="nav-btn px-4 py-1.5 rounded-full text-xs font-semibold text-white bg-gradient-to-r from-[#00abf0] to-[#2563eb]"
+              class="nav-button px-4 py-1.5 rounded-full text-xs font-semibold text-white bg-gradient-to-r from-[#00abf0] to-[#2563eb]"
             >
               Hire Me
             </a>
@@ -837,12 +837,14 @@
           <div class="flex flex-wrap gap-3.5 mb-8">
             <a
               href="#contact"
-              class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-white btn-primary transition-all duration-300"
+              data-section="contact"
+              class="nav-button inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-white btn-primary transition-all duration-300"
               >Hire Me</a
             >
             <a
               href="#works"
-              class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-white btn-ghost transition-all duration-300"
+              data-section="works"
+              class="nav-link inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-white btn-ghost transition-all duration-300"
               >View Projects</a
             >
           </div>
@@ -1116,10 +1118,9 @@
           >
         </div>
       </div>
-    </section>
 
     <!-- ================= SKILLS ================= -->
-    <section id="skills" class="pb-12 px-6">
+    <section class="pb-12 px-6">
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-12 md:mb-16">
           <span class="section-label">Skills</span>
@@ -1281,6 +1282,7 @@
           </div>
         </div>
       </div>
+    </section>
     </section>
 
     <!-- ================= EXPERIENCE ================= -->
@@ -1732,7 +1734,11 @@
                   >
                     <i class="bx bx-link-external"></i> Live Website
                   </a>
-       
+                  <button
+                    class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-white/50 border border-white/10 hover:border-white/30 hover:text-white transition-all duration-200 opacity-50 cursor-not-allowed"
+                  >
+                    <i class="bx bx-book-open"></i> Case Study
+                  </button>
                 </div>
               </div>
 
@@ -2507,7 +2513,8 @@
             </p>
             <a
               href="#contact"
-              class="inline-flex items-center gap-2 mt-6 px-8 py-3.5 rounded-full font-semibold text-white bg-gradient-to-r from-[#00abf0] to-[#2563eb] hover:shadow-2xl hover:shadow-[#00abf0]/30 transition-all duration-300 hover:scale-105 hover:-translate-y-0.5"
+              data-section="contact"
+              class="nav-button inline-flex items-center gap-2 mt-6 px-8 py-3.5 rounded-full font-semibold text-white bg-gradient-to-r from-[#00abf0] to-[#2563eb] hover:shadow-2xl hover:shadow-[#00abf0]/30 transition-all duration-300 hover:scale-105 hover:-translate-y-0.5"
             >
               Let's talk
               <i class="bx bx-arrow-right text-xl"></i>
@@ -2813,7 +2820,6 @@
       </button>
     </div>
 
-
     <!-- Chat Window -->
     <div id="chatWindow" class="chat-window hidden">
       <div
@@ -2869,7 +2875,9 @@
       if (typeof lucide !== "undefined") lucide.createIcons();
 
       // ===== NAVIGATION: clean scroll with no hash =====
-      const navLinks = document.querySelectorAll(".nav-link, .mobile-pill, .nav-btn");
+      const navLinks = document.querySelectorAll(
+        ".nav-link, .mobile-pill, .nav-button",
+      );
       const sections = document.querySelectorAll("section[id]");
 
       function scrollToSection(id) {
@@ -2900,17 +2908,25 @@
         });
       });
 
-      // Active section highlighting
+      // Active section highlighting using getBoundingClientRect for accuracy
       function updateActiveNav() {
         let current = "";
-        const scrollPosition = window.scrollY + 40;
+        const scrollPosition = window.scrollY + 80;
+
         sections.forEach((sec) => {
-          const sectionTop = sec.offsetTop;
-          const sectionBottom = sectionTop + sec.offsetHeight;
-          if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+          const rect = sec.getBoundingClientRect();
+          const sectionTop = rect.top + window.scrollY;
+          const sectionBottom = sectionTop + rect.height;
+
+          // Check if the section is in view (with some offset)
+          if (
+            scrollPosition >= sectionTop - 20 &&
+            scrollPosition < sectionBottom - 20
+          ) {
             current = sec.id;
           }
         });
+
         navLinks.forEach((link) => {
           const href = link.getAttribute("href");
           if (href && href.startsWith("#")) {
@@ -3067,7 +3083,6 @@
 
       // Open chat on button click
       if (chatBtn) chatBtn.onclick = openChat;
-
 
       // Close chat with close button
       const chatCloseBtn = document.getElementById("chatClose");
