@@ -599,6 +599,24 @@
           transition-duration: 0.001ms !important;
         }
       }
+
+      /* Hide scrollbar in chat while keeping scroll functionality */
+      #messages {
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+        overflow-y: auto !important;
+      }
+
+      #messages::-webkit-scrollbar {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+      }
+
+      /* Smooth scrolling for messages */
+      #messages {
+        scroll-behavior: smooth !important;
+      }
     </style>
   </head>
 
@@ -2870,6 +2888,7 @@
       counters.forEach((c) => countObserver.observe(c));
 
       // ===== Chat =====
+      // ===== CHATBOT WITH BACKEND API =====
       function nowTime() {
         return new Date().toLocaleTimeString([], {
           hour: "2-digit",
@@ -2877,127 +2896,181 @@
         });
       }
 
-      function smartResponse(q) {
-        q = q.toLowerCase();
-        if (q.includes("react") || q.includes("frontend"))
-          return "Umesh builds modern, responsive UIs with React, Next.js and Tailwind CSS. Recent examples include QForce, QHome and the Rumooz platform.";
-        if (
-          q.includes("node") ||
-          q.includes("backend") ||
-          q.includes("express")
-        )
-          return "Umesh's backend work is Node.js and Express, mostly on the PERN stack, including deployment on Windows Server with IIS, SSL and DNS configuration.";
-        if (
-          q.includes("ai") ||
-          q.includes("machine learning") ||
-          q.includes("ml") ||
-          q.includes("tensorflow")
-        )
-          return "Umesh has hands-on AI experience: Speech Emotion Recognition (CNN/LSTM), NLP chatbots, LLM tooling with LangChain and Gemini, and an AI internship at Samsung PRISM.";
-        if (q.includes("project"))
-          return "Highlights: QAS Legal Consultation (full-stack with Stripe payments), QueryPilot (AI SQL generator), CODEGURU (AI technical mentor), plus rumooz.ae, qforce.ae, qhome.ae, qev.ae and thecue.ae.";
-        if (
-          q.includes("experience") ||
-          q.includes("work") ||
-          q.includes("rumooz")
-        )
-          return "Umesh is currently a Full Stack Developer at Rumooz Smart Solutions in Abu Dhabi, building PERN apps and managing deployment infrastructure. Before that, he interned in AI/ML at Samsung PRISM.";
-        if (q.includes("skill"))
-          return "Core stack: React, Node.js, Express, PostgreSQL, MongoDB, Python, TensorFlow, PyTorch, LangChain, plus deployment on Windows Server/IIS with Git and Docker.";
-        if (q.includes("contact") || q.includes("email") || q.includes("hire"))
-          return "Best way to reach Umesh is the contact form on this page, or directly at khanalumesh14@gmail.com.";
-        if (q.includes("hi") || q.includes("hello"))
-          return "Hey! I'm Umesh's AI assistant. Ask me about his experience, projects, skills, or AI work.";
-        return "Good question — I can tell you about Umesh's experience, projects, skills, or AI work. What would you like to know?";
-      }
-
-      let chatMessages = [
+      let chatMessages = JSON.parse(
+        sessionStorage.getItem("chat_messages"),
+      ) || [
         {
           role: "bot",
-          text: "Hi, I'm Umesh's AI assistant. Ask me about his experience, projects, or skills.",
+          text: `Welcome to Umesh Khanal's AI Assistant.\n\nAsk me anything about his background, technical expertise, projects, work experience, achievements, or professional journey.\n\nHow can I assist you today?`,
           time: nowTime(),
         },
       ];
 
-      const chatPanel = document.getElementById("chatPanel");
-      const chatBackdrop = document.getElementById("chatBackdrop");
-      const chatBody = document.getElementById("chatBody");
-      const chatInput = document.getElementById("chatInput");
-      const chatToggle = document.getElementById("chatToggle");
-      const chatClose = document.getElementById("chatClose");
+      function saveMessages() {
+        sessionStorage.setItem("chat_messages", JSON.stringify(chatMessages));
+      }
 
-      function renderChat() {
-        chatBody.innerHTML = "";
+      const chatBtn = document.getElementById("chatButton");
+      const chatWindow = document.getElementById("chatWindow");
+      const backdrop = document.getElementById("backdrop");
+      const container = document.getElementById("messages");
+      const input = document.getElementById("question");
+
+      function render() {
+        if (!container) return;
+        container.innerHTML = "";
+
         chatMessages.forEach((m) => {
-          const b = document.createElement("div");
-          b.className = "bubble " + (m.role === "user" ? "user" : "bot");
+          const div = document.createElement("div");
+          div.className = `flex ${m.role === "user" ? "justify-end" : "justify-start"}`;
+
+          const bubble = document.createElement("div");
+          bubble.className = `message-bubble ${m.role === "user" ? "user" : "bot"}`;
+
           if (m.thinking) {
-            b.innerHTML =
-              '<div class="typing-dots"><span></span><span></span><span></span></div>';
+            bubble.innerHTML = `
+        <div class="flex items-center gap-2">
+          <i data-lucide="sparkles" class="w-4 h-4 text-[#00abf0]"></i>
+          <div class="typing-indicator flex gap-1">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      `;
           } else {
-            b.textContent = m.text;
+            bubble.innerHTML = `
+        <p class="text-sm leading-relaxed whitespace-pre-wrap">${m.text}</p>
+        <p class="text-[10px] opacity-50 text-right mt-1">${m.time}</p>
+      `;
           }
-          chatBody.appendChild(b);
+
+          div.appendChild(bubble);
+          container.appendChild(div);
         });
-        chatBody.scrollTop = chatBody.scrollHeight;
+
+        container.scrollTop = container.scrollHeight;
+        if (typeof lucide !== "undefined") lucide.createIcons();
       }
 
       function openChat() {
-        chatPanel.classList.add(
-          "scale-100",
-          "translate-y-0",
-          "opacity-100",
-          "pointer-events-auto",
-        );
-        chatBackdrop.classList.add("show");
-        renderChat();
+        chatWindow.classList.remove("hidden");
+        backdrop.classList.remove("hidden");
+        render();
+        if (input) setTimeout(() => input.focus(), 100);
       }
-      function closeChat() {
-        chatPanel.classList.remove(
-          "scale-100",
-          "translate-y-0",
-          "opacity-100",
-          "pointer-events-auto",
-        );
-        chatBackdrop.classList.remove("show");
-      }
-      if (chatToggle) chatToggle.onclick = openChat;
-      if (chatClose) chatClose.onclick = closeChat;
-      if (chatBackdrop) chatBackdrop.onclick = closeChat;
 
-      function sendMessage(text) {
-        const q = (text || chatInput.value).trim();
+      function closeChat() {
+        chatWindow.classList.add("hidden");
+        backdrop.classList.add("hidden");
+      }
+
+      if (chatBtn) chatBtn.onclick = openChat;
+      if (backdrop) backdrop.onclick = closeChat;
+
+      async function send() {
+        const q = input.value.trim();
         if (!q) return;
+
         chatMessages.push({ role: "user", text: q, time: nowTime() });
-        chatMessages.push({ role: "bot", text: "", thinking: true });
-        chatInput.value = "";
-        renderChat();
-        setTimeout(() => {
+        chatMessages.push({
+          role: "bot",
+          text: "",
+          thinking: true,
+          time: nowTime(),
+        });
+        saveMessages();
+        input.value = "";
+        render();
+
+        try {
+          // Use your existing backend endpoint
+          const res = await fetch("https://umeshkhanal.onrender.com/response", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ question: q }),
+          });
+          const data = await res.json();
           chatMessages.pop();
           chatMessages.push({
             role: "bot",
-            text: smartResponse(q),
+            text: data.response || "Thanks for your question!",
             time: nowTime(),
           });
-          renderChat();
-        }, 600);
+        } catch (e) {
+          // Fallback to local smart response if backend fails
+          chatMessages.pop();
+          chatMessages.push({
+            role: "bot",
+            text: getSmartResponse(q),
+            time: nowTime(),
+          });
+        }
+
+        saveMessages();
+        render();
       }
 
-      const sendBtn = document.getElementById("chatSend");
-      if (sendBtn) sendBtn.onclick = () => sendMessage();
-      if (chatInput) {
-        chatInput.addEventListener("keydown", (e) => {
+      // Fallback smart response function (keep this as backup)
+      function getSmartResponse(question) {
+        const q = question.toLowerCase();
+        if (q.includes("react") || q.includes("frontend")) {
+          return "Umesh is an expert in React.js! He builds modern, responsive UIs with React Hooks, Context API, Redux, and TailwindCSS. His React projects include QForce, QHome, and Rumooz platforms.";
+        }
+        if (
+          q.includes("node") ||
+          q.includes("backend") ||
+          q.includes("express")
+        ) {
+          return "Umesh has extensive backend experience with Node.js and Express.js. He builds RESTful APIs, authentication systems, and full-stack PERN applications. He also manages server deployment, IIS, SSL certificates, and DNS configurations.";
+        }
+        if (
+          q.includes("machine learning") ||
+          q.includes("ml") ||
+          q.includes("ai") ||
+          q.includes("tensorflow")
+        ) {
+          return "Umesh has strong ML/AI expertise! He built Speech Emotion Recognition using CNNs/LSTMs, NLP chatbots with TF-IDF, LLM applications, and completed an AI internship at Samsung PRISM working on GenAI and Prompt Engineering.";
+        }
+        if (q.includes("project") || q.includes("portfolio")) {
+          return "Key projects by Umesh: QueryPilot (AI SQL generator), Speech Emotion Recognition App, CODEGURU (AI technical mentor), and full-stack business systems. He also developed rumooz.ae, qforce.ae, qhome.ae, and thecue.ae.";
+        }
+        if (
+          q.includes("experience") ||
+          q.includes("rumooz") ||
+          q.includes("work")
+        ) {
+          return "Umesh currently works as Full Stack Developer at Rumooz Smart Solutions in Abu Dhabi, UAE. He develops PERN stack apps, manages Windows Server/IIS, SSL, DNS, and client communications. Previously, he was an ML/AI intern at Samsung PRISM.";
+        }
+        if (q.includes("education") || q.includes("degree")) {
+          return "Umesh holds a Bachelor's degree in Information Science & Engineering from VTU University, Karnataka with an impressive CGPA of 9.5/10. He also completed his schooling from Omega International College, Nepal with excellent grades.";
+        }
+        if (q.includes("skill") || q.includes("technologies")) {
+          return "Umesh's tech stack: JavaScript/TypeScript, Python, React, Node.js, Express, PostgreSQL, MongoDB, TailwindCSS, Flask, Django, TensorFlow, PyTorch, React Native, Git, and various cloud platforms.";
+        }
+        if (q.includes("contact") || q.includes("email")) {
+          return "You can contact Umesh via the contact form on this website, or directly email him at khanalumesh14@gmail.com. He's also active on LinkedIn (linkedin.com/in/umesh-khanal).";
+        }
+        if (q.includes("hello") || q.includes("hi")) {
+          return "Hello there! 👋 I'm Umesh's AI assistant. Feel free to ask about his full-stack development skills, machine learning projects, work experience, education, or anything else you'd like to know!";
+        }
+        return "Thanks for your question! Umesh specializes in PERN stack development, Machine Learning, and custom web applications. Could you ask about his skills (React/Node/Python), projects, work experience at Rumooz, education, or AI/ML expertise? I'm here to help!";
+      }
+
+      document.getElementById("send").onclick = send;
+      if (input) {
+        input.addEventListener("keydown", (e) => {
           if (e.key === "Enter" && !e.shiftKey) {
             e.preventDefault();
-            sendMessage();
+            send();
           }
         });
+        input.addEventListener("input", () => {
+          input.style.height = "auto";
+          input.style.height = Math.min(input.scrollHeight, 128) + "px";
+        });
       }
-      document.querySelectorAll("#suggested button").forEach((btn) => {
-        btn.addEventListener("click", () =>
-          sendMessage(btn.getAttribute("data-q")),
-        );
-      });
+
+      render();
+      if (typeof lucide !== "undefined") lucide.createIcons();
     </script>
   </body>
 </html>
